@@ -19,27 +19,28 @@ public class Board {
 		return rows;
 	}
 
-	public void setRows(int rows) {
-		this.rows = rows;
-	}
-
 	public int getColumns() {
 		return columns;
 	}
-
-	public void setColumns(int columns) {
-		this.columns = columns;
-	}
 	
 	public Piece piece(int row, int column) {
+		if (!positionExists(row, column)) {       // Se a posição não existir, lançar a exceção
+			throw new BoardException("Position not on the board");
+		}
 		return pieces[row][column];
 	}
 	
 	public Piece piece (Position position) {
+		if (!positionExists(position)) {       // Se a posição não existir, lançar a exceção
+			throw new BoardException("Position not on the board");
+		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position) {
+		if (thereIsAPiece(position)) {        // Se já existir uma peça na posição, lançar a exceção
+			throw new BoardException("There is already a piece on position " + position);
+		}
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
 	}
@@ -56,6 +57,9 @@ public class Board {
 	
 	//Testar se tem uma peça em determinada posição
 	public boolean thereIsAPiece(Position position) {
+		if (!positionExists(position)) {       // Se a posição não existir, lançar a exceção
+			throw new BoardException("Position not on the board");
+		}
 		return piece(position) != null;
 	}
 }
