@@ -59,6 +59,10 @@ public class UI {
 		System.out.println();
 		System.out.println("Turn : " + chessMatch.getTurn());
 		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+		
+		if (chessMatch.getCheck()) {        // Testar se a partida está em CHECK
+			System.out.println("CHECK!");   // Exibir a mensagem de CHECK na tela
+		}
 	}
 
 	// ESTRUTURA DO TABULEIRO - Imprimir tabuleiro
