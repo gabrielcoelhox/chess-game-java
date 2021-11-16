@@ -40,6 +40,14 @@ public class Program {
 					captured.add(capturedPiece);                                // Significa que alguma peça foi capturada
 				}                                                               // Add a peça a lista capuredPiece
 				
+				// Testar se uma peça foi promovida
+				// Escolher para qual peça será promovida
+				if (chessMatch.getPromoted() != null) {
+					System.out.print("Enter piece for promotion (B/N/R/Q): ");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
+				}
+				
 			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
