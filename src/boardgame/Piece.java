@@ -21,9 +21,9 @@ public abstract class Piece {
 	}
 
 	public boolean isThereAnyPossibleMove() {
-		boolean [][] mat = possibleMoves();
-		for (int i = 0; i < mat.length; i++) {
-			for (int j = 0; i < mat.length; j++) {
+		boolean[][] mat = possibleMoves();
+		for (int i=0; i<mat.length; i++) {
+			for (int j=0; j<mat.length; j++) {
 				if (mat[i][j]) {     // Se a matriz na linha I e coluna J for verdadeira, existe movimento possível
 					return true;
 				}

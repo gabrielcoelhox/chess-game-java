@@ -25,10 +25,10 @@ public class Rook extends ChessPiece {
 		
 		// Acima
 		p.setValues(position.getRow() - 1, position.getColumn());       // O -1 é para analisar a posição acima de peça
-		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)); {
+		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setRow(p.getRow() - 1);
-		} 
+		}
 		if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
